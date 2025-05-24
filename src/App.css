@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+main {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc;
+}
+
+.subtitle-active {
+  background-color: rgba(79, 70, 229, 0.1);
+  border-left: 3px solid #4f46e5;
+}
+
+.speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.speed-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.speed-marker {
+  position: absolute;
+  transform: translateX(-50%);
+  top: -20px;
+  font-size: 12px;
+}
+
+
+
+
+/*
+#root {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+  
+*/
