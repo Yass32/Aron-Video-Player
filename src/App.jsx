@@ -39,7 +39,7 @@ function App() {
         <>
         <main className="p-8 w-full h-screen border border-black">
             <div className="max-w-7xl mx-auto">
-                <p className="text-2xl font-bold text-gray-800 mb-5">Video Player by Aron Tech.</p>
+                <p className="text-3xl font-bold text-gray-800 mb-5">Video Player by Aron Tech.</p>
 
                 {/* Main Video Player Card */}
                 <div className="bg-white rounded-xl shadow-xl overflow-hidden w-[80%] mx-auto">
@@ -82,7 +82,7 @@ function App() {
                             {/* Subtitles Section */}
                             <div className="p-4 border-b border-gray-200">
                                 <div className="flex items-center justify-between mb-4">
-                                    <h2 className="text-lg font-semibold text-gray-800">Subtitles</h2>
+                                    <h2 className="text-xl font-semibold text-gray-800">Subtitles</h2>
                                 </div>
 
                                 {/* Scrollable Subtitle List */}
@@ -120,16 +120,20 @@ function App() {
 
                             {/* Playback Speed Control */}
                             <div className="p-4">
-                                <h2 className="text-m font-semibold text-gray-800 mb-3">Playback Speed</h2>
+                                <h2 className="text-lg font-semibold text-gray-800 mb-3">Playback Speed</h2>
 
                                 {/* Slider bar for speed control */}
-                                <div className="relative mt-8 mb-2 flex text-indigo-600">
+                                <div className="relative mt-8 mb-2 flex ">
                                     {/* Speed marker labels */}
-                                    <div className="speed-marker left-[0%]">0.25x</div>
+                                    <div className='text-indigo-600 text-lg'>
+                                        <div className="speed-marker left-[0%]">0.25x</div>
                                     <div className="speed-marker left-[19%]">0.5x</div>
                                     <div className="speed-marker left-[44%]">1x</div>
                                     <div className="speed-marker left-[69%]">1.5x</div>
                                     <div className="speed-marker left-[100%]">2x</div>
+
+                                    </div>
+                                    
 
                                     {/* Slider input */}
                                     <input
@@ -150,7 +154,7 @@ function App() {
 
                                 {/* Display current speed */}
                                 <div className="flex justify-between items-center mt-8">
-                                    <div className="text-xs text-gray-500">
+                                    <div className=" text-gray-500">
                                         Current speed: <span className="font-semibold text-indigo-600">{speedValue}</span>
                                     </div>
                                 </div>
