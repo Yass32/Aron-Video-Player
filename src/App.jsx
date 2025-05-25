@@ -38,7 +38,7 @@ function App() {
     return (
         <>
         <main className="p-8 w-full h-screen border border-black">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-7xl mx-auto h-[80%]">
                 <p className="text-3xl font-bold text-gray-800 mb-5">Video Player by Aron Tech.</p>
 
                 {/* Main Video Player Card */}
@@ -125,7 +125,7 @@ function App() {
                                 {/* Slider bar for speed control */}
                                 <div className="relative mt-8 mb-2 flex ">
                                     {/* Speed marker labels */}
-                                    <div className='text-lg'>
+                                    <div className='text-lg text-gray-500'>
                                     <div className="speed-marker left-[2%]">0.25x</div>
                                     <div className="speed-marker left-[19%]">0.5x</div>
                                     <div className="speed-marker left-[44%]">1x</div>
@@ -138,7 +138,7 @@ function App() {
                                     {/* Slider input */}
                                     <input
                                         type="range"
-                                        className="speed-slider w-full h-2 rounded-lg cursor-pointer"
+                                        className="speed-slider w-full h-2 bg-amber-800 text-emerald-700 rounded-lg cursor-pointer"
                                         min="0.25"
                                         max="2"
                                         step="0.05"
