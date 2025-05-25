@@ -37,36 +37,31 @@ function App() {
 
     return (
         <>
-        <main className="p-8 w-full h-screen border border-black">
-            <div className="max-w-7xl mx-auto h-[80%]">
-                <p className="text-3xl font-bold text-gray-800 mb-5">Video Player by Aron Tech.</p>
+        <main className="p-2 sm:p-4 w-full min-h-screen border border-black bg-gray-50">
+            <div className="max-w-7xl mt-8 mx-auto h-full flex flex-col items-center justify-center">
+                <p className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3 sm:mb-5 text-center">Video Player by Aron Tech.</p>
 
                 {/* Main Video Player Card */}
-                <div className="bg-white rounded-xl shadow-xl overflow-hidden h-[70%] w-[80%] mx-auto">
+                <div className="bg-white rounded-xl shadow-xl overflow-hidden w-full sm:w-[90%] md:w-[80%] mx-auto h-auto md:h-[70%]">
                     <div className="flex flex-col md:flex-row">
                         
                         {/* Left: Video Area */}
-                        <div className="w-3/5">
-                            <div className="relative pb-[56.25%] h-full">
+                        <div className="w-full md:w-3/5">
+                            <div className="relative pb-[56.25%] md:pb-[56.25%]">
                                 <video
                                     id="main-video"
-                                    ref={videoRef} // Connect videoRef to this video
+                                    ref={videoRef}
                                     src="/daisy-day-book.mp4"
-                                    className="absolute inset-0"
+                                    className="absolute inset-0 w-full h-full rounded-t-xl md:rounded-t-none md:rounded-l-xl"
                                     controls
                                     onTimeUpdate={() => {
-                                        // Every second, get the current video time
                                         if (videoRef.current) {
                                             const currentTime = videoRef.current.currentTime;
-
-                                            // Find the subtitle that matches the current time
                                             const currentSubtitle = subtitles.find(
                                                 (subtitle) =>
                                                     currentTime >= subtitle.start &&
                                                     currentTime <= subtitle.end
                                             );
-
-                                            // If we find a matching subtitle, update activeSubtitle
                                             if (currentSubtitle) {
                                                 setActiveSubtitle(currentSubtitle.id);
                                             }
@@ -77,39 +72,33 @@ function App() {
                         </div>
 
                         {/* Right: Subtitles & Speed Control */}
-                        <div className="w-2/5 border-l border-gray-200">
-
+                        <div className="w-full md:w-2/5 border-t md:border-t-0 md:border-l border-gray-200 bg-white">
                             {/* Subtitles Section */}
-                            <div className="p-4 border-b border-gray-200">
-                                <div className="flex items-center justify-between mb-4">
-                                    <h2 className="text-2xl font-semibold text-gray-800">Subtitles</h2>
+                            <div className="p-2 sm:p-4 border-b border-gray-200">
+                                <div className="flex items-center justify-between mb-2 sm:mb-4">
+                                    <h2 className="text-lg sm:text-2xl font-semibold text-gray-800">Subtitles</h2>
                                 </div>
-
                                 {/* Scrollable Subtitle List */}
-                                <div className="h-[150px] overflow-y-auto pr-2">
+                                <div className="h-[120px] sm:h-[180px] md:h-[250px] overflow-y-auto pr-1 sm:pr-2">
                                     {subtitles.map(subtitle => {
                                         return (
                                             <div
                                                 key={subtitle.id}
                                                 id={`subtitle-${subtitle.id}`}
-                                                ref={(el) => (subtitleRefs.current[subtitle.id] = el)} // Save ref for scrolling
-                                                className={`p-3 text-sm border-b border-gray-100 hover:bg-gray-50 cursor-pointer 
+                                                ref={(el) => (subtitleRefs.current[subtitle.id] = el)}
+                                                className={`p-2 sm:p-3 text-xs sm:text-sm border-b border-gray-100 hover:bg-gray-50 cursor-pointer 
                                                     ${activeSubtitle === subtitle.id ? 'bg-indigo-100' : ''}`}
                                                 onClick={() => {
-                                                    // Jump to clicked subtitle time
                                                     if (videoRef.current) {
                                                         videoRef.current.currentTime = subtitle.start;
-                                                        videoRef.current.play(); // Start video
+                                                        videoRef.current.play();
                                                     }
                                                 }}
                                             >
-                                                {/* Show subtitle time */}
-                                                <div className="text-xs text-gray-500 mb-1">
+                                                <div className="text-[10px] sm:text-xs text-gray-500 mb-1">
                                                     {formatTime(subtitle.start)} - {formatTime(subtitle.end)}
                                                 </div>
-
-                                                {/* Show subtitle text */}
-                                                <div className="text-sm text-gray-800">
+                                                <div className="text-xs sm:text-sm text-gray-800">
                                                     {subtitle.text}
                                                 </div>
                                             </div>
@@ -119,42 +108,41 @@ function App() {
                             </div>
 
                             {/* Playback Speed Control */}
-                            <div className="p-4">
-                                <h2 className="text-lg font-semibold text-gray-800 mb-3">Playback Speed</h2>
-
+                            <div className="p-2 sm:p-4">
+                                <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-3">Playback Speed</h2>
                                 {/* Slider bar for speed control */}
-                                <div className="relative mt-8 mb-2 flex ">
+                                <div className="relative mt-4 sm:mt-8 mb-2 flex">
                                     {/* Speed marker labels */}
-                                    <div className='text-lg text-gray-500'>
-                                    <div className="speed-marker left-[2%]">0.25x</div>
-                                    <div className="speed-marker left-[19%]">0.5x</div>
-                                    <div className="speed-marker left-[44%]">1x</div>
-                                    <div className="speed-marker left-[69%]">1.5x</div>
-                                    <div className="speed-marker left-[100%]">2x</div>
-
+                                    <div className="text-gray-500 hidden sm:block">
+                                        <div className="speed-marker left-[2%]">0.25x</div>
+                                        <div className="speed-marker left-[19%]">0.5x</div>
+                                        <div className="speed-marker left-[44%]">1x</div>
+                                        <div className="speed-marker left-[69%]">1.5x</div>
+                                        <div className="speed-marker left-[100%]">2x</div>
                                     </div>
-                                    
-
                                     {/* Slider input */}
                                     <input
                                         type="range"
-                                        className="speed-slider w-full h-2 bg-amber-800 text-emerald-700 rounded-lg cursor-pointer"
+                                        className="speed-slider w-full h-2 rounded-lg cursor-pointer"
                                         min="0.25"
                                         max="2"
                                         step="0.05"
                                         value={speedValue}
                                         onChange={(e) => {
-                                            setSpeedValue(e.target.value); // Update speed in state
+                                            const newValue = parseFloat(e.target.value);
+                                            setSpeedValue(newValue);
                                             if (videoRef.current) {
-                                                videoRef.current.playbackRate = e.target.value; // Change video speed
+                                                videoRef.current.playbackRate = newValue;
                                             }
+                                        }}
+                                        style={{
+                                            background: `linear-gradient(to right, #4f46e5 ${(speedValue - 0.25) / 1.75 * 100}%, #e5e7eb ${(speedValue - 0.25) / 1.75 * 100}%)`
                                         }}
                                     />
                                 </div>
-
                                 {/* Display current speed */}
-                                <div className="flex justify-between items-center mt-8">
-                                    <div className=" text-gray-500">
+                                <div className="flex justify-between items-center mt-4 sm:mt-8">
+                                    <div className="text-xs sm:text-gray-500">
                                         Current speed: <span className="font-semibold text-indigo-600">{speedValue}</span>
                                     </div>
                                 </div>

@@ -10,6 +10,42 @@ main {
   border-left: 3px solid #4f46e5;
 }
 
+
+.speed-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #4f46e5 0%, #e5e7eb 0%); 
+  outline: none;
+}
+
+.speed-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4f46e5;
+  cursor: pointer;
+  border: none;
+}
+
+.speed-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #4f46e5;
+  cursor: pointer;
+  border: none;
+}
+
+
+
+
+/*
+
 .speed-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -17,6 +53,7 @@ main {
   height: 20px;
   border-radius: 50%;
   cursor: pointer;
+  background: #4f46e5;
 }
 
 .speed-slider::-moz-range-thumb {
@@ -25,14 +62,17 @@ main {
   border-radius: 50%;
   cursor: pointer;
   border: none;
+  background: #4f46e5;
   
 }
+
+*/
 
 .speed-marker {
   position: absolute;
   transform: translateX(-50%);
-  top: -20px;
-  font-size: 12px;
+  top: -22px;
+  font-size: 13px;
 }
 
 
