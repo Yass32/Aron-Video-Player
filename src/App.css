@@ -17,6 +17,7 @@ main {
   height: 20px;
   border-radius: 50%;
   cursor: pointer;
+  background: #4f46e5;
 }
 
 .speed-slider::-moz-range-thumb {
@@ -25,6 +26,7 @@ main {
   border-radius: 50%;
   cursor: pointer;
   border: none;
+  background: #4f46e5;
 }
 
 .speed-marker {

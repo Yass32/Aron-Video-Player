@@ -42,7 +42,7 @@ function App() {
                 <p className="text-3xl font-bold text-gray-800 mb-5">Video Player by Aron Tech.</p>
 
                 {/* Main Video Player Card */}
-                <div className="bg-white rounded-xl shadow-xl overflow-hidden w-[80%] mx-auto">
+                <div className="bg-white rounded-xl shadow-xl overflow-hidden h-[70%] w-[80%] mx-auto">
                     <div className="flex flex-col md:flex-row">
                         
                         {/* Left: Video Area */}
@@ -82,7 +82,7 @@ function App() {
                             {/* Subtitles Section */}
                             <div className="p-4 border-b border-gray-200">
                                 <div className="flex items-center justify-between mb-4">
-                                    <h2 className="text-xl font-semibold text-gray-800">Subtitles</h2>
+                                    <h2 className="text-2xl font-semibold text-gray-800">Subtitles</h2>
                                 </div>
 
                                 {/* Scrollable Subtitle List */}
@@ -126,7 +126,7 @@ function App() {
                                 <div className="relative mt-8 mb-2 flex ">
                                     {/* Speed marker labels */}
                                     <div className='text-indigo-600 text-lg'>
-                                        <div className="speed-marker left-[0%]">0.25x</div>
+                                    <div className="speed-marker left-[2%]">0.25x</div>
                                     <div className="speed-marker left-[19%]">0.5x</div>
                                     <div className="speed-marker left-[44%]">1x</div>
                                     <div className="speed-marker left-[69%]">1.5x</div>
