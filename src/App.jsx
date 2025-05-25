@@ -51,7 +51,7 @@ function App() {
                                 <video
                                     id="main-video"
                                     ref={videoRef} // Connect videoRef to this video
-                                    src="../public/Daisys Day Book.mp4"
+                                    src="/daisy-day-book.mp4"
                                     className="absolute inset-0"
                                     controls
                                     onTimeUpdate={() => {
