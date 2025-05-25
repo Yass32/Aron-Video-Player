@@ -47,7 +47,7 @@ function App() {
                         
                         {/* Left: Video Area */}
                         <div className="w-3/5">
-                            <div className="relative pb-[56.25%]">
+                            <div className="relative pb-[56.25%] h-full">
                                 <video
                                     id="main-video"
                                     ref={videoRef} // Connect videoRef to this video
@@ -125,7 +125,7 @@ function App() {
                                 {/* Slider bar for speed control */}
                                 <div className="relative mt-8 mb-2 flex ">
                                     {/* Speed marker labels */}
-                                    <div className='text-indigo-600 text-lg'>
+                                    <div className='text-lg'>
                                     <div className="speed-marker left-[2%]">0.25x</div>
                                     <div className="speed-marker left-[19%]">0.5x</div>
                                     <div className="speed-marker left-[44%]">1x</div>
