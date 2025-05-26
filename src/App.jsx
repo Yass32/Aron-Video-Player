@@ -11,6 +11,7 @@ function App() {
 
     // State to hold the currently active subtitle (highlighted one)
     const [activeSubtitle, setActiveSubtitle] = useState(null);
+    const [activeDefinition, setActiveDefinition] = useState(null); // For glossary toggle
 
     // useRef to reference the video element
     const videoRef = useRef(null);
@@ -34,6 +35,46 @@ function App() {
             });
         }
     }, [activeSubtitle]); // Only run when activeSubtitle changes
+
+    // Glossary data for easier mapping
+    const glossary = [
+        {
+            key: "example",
+            buttonClass: "bg-indigo-50 hover:bg-indigo-100 text-indigo-700",
+            title: "Example",
+            definition: "An example is something that shows you how to do something or what something means. For instance, if you don't understand a word, a teacher might give you an example to help you learn.",
+            related: "Sample, Model, Demonstration",
+            colorClass: "bg-indigo-50 text-indigo-800",
+            relatedClass: "text-indigo-600"
+        },
+        {
+            key: "hurry-up",
+            buttonClass: "bg-purple-50 hover:bg-purple-100 text-purple-700",
+            title: "Hurry up",
+            definition: "Hurry up means to do something faster. If someone says \"hurry up,\" they want you to move quickly or finish soon.",
+            related: "Quick, Fast, Rush",
+            colorClass: "bg-purple-50 text-purple-800",
+            relatedClass: "text-purple-600"
+        },
+        {
+            key: "talk",
+            buttonClass: "bg-blue-50 hover:bg-blue-100 text-blue-700",
+            title: "Talk",
+            definition: "To talk means to use your voice to say words to someone. People talk to share ideas, ask questions, or just have fun with friends.",
+            related: "Speak, Chat, Say",
+            colorClass: "bg-blue-50 text-blue-800",
+            relatedClass: "text-blue-600"
+        },
+        {
+            key: "paint",
+            buttonClass: "bg-green-50 hover:bg-green-100 text-green-700",
+            title: "Paint",
+            definition: "To paint means to use colors and a brush to make pictures on paper, walls, or other things. Painting is a way to make art and show your ideas with colors.",
+            related: "Draw, Color, Art",
+            colorClass: "bg-green-50 text-green-800",
+            relatedClass: "text-green-600"
+        }
+    ];
 
     return (
         <>
@@ -149,7 +190,52 @@ function App() {
                             </div>
                         </div>
                     </div>
+
+                    
+                    {/* Key Terms Glossary Section */}                      
+                    <div className="p-6">
+                        <h2 className="text-2xl font-bold text-gray-800 mb-6">Key Terms Glossary</h2>
+                        <div className="mb-4">
+                            <p className="text-gray-600 mb-4">Click on any keyword to see its definition:</p>
+                            {/* Keywords Container */}
+                            <div className="flex flex-wrap gap-2 mb-8">
+                                {glossary.map(term => (
+                                    <button
+                                        key={term.key}
+                                        className={`keyword px-4 py-2 rounded-lg font-medium shadow-sm transition-all ${term.buttonClass} ${activeDefinition === term.key ? 'ring-2 ring-offset-2 ring-indigo-300' : ''}`}
+                                        onClick={() => setActiveDefinition(activeDefinition === term.key ? null : term.key)}
+                                        type="button"
+                                    >
+                                        {term.title}
+                                    </button>
+                                ))}
+                            </div>
+                            {/* Definitions Container */}
+                            <div id="definitions-container" className="border-t border-gray-200 pt-4">
+                                {glossary.map(term => (
+                                    <div
+                                        key={term.key}
+                                        className={`definition-container transition-all duration-300 ease-in-out ${activeDefinition === term.key ? 'active max-h-[500px] mb-4' : 'max-h-0 overflow-hidden'}`}
+                                        id={`${term.key}-definition`}
+                                    >
+                                        <div className={`${term.colorClass} p-4 rounded-lg`}>
+                                            <h3 className={`text-lg font-semibold mb-2 ${term.colorClass.split(' ')[1]}`}>{term.title}</h3>
+                                            <p className="text-gray-700">{term.definition}</p>
+                                            <div className="mt-3 flex items-center text-sm">
+                                                <span className={`${term.relatedClass} font-medium`}>Related terms:</span>
+                                                <span className="ml-2 text-gray-600">{term.related}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                        
+                    
                 </div>
+
+                
             </div>
         </main>
         </>
