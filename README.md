@@ -11,6 +11,7 @@ This is a React-based video player application that features a custom video play
 - **Auto-Scroll Subtitles**: Automatically scrolls to the active subtitle as the video plays.
 - **Subtitle Navigation**: Click on a subtitle to jump to its corresponding time in the video.
 - **Playback Speed Control**: Adjust the playback speed using a slider (0.25x to 2x).
+- **Interactive Glossary**: Click a keyword to toggle its simple, elementary-level definition.
 
 ## Project Structure
 
@@ -61,6 +62,7 @@ videoapp/
 2. **View Subtitles**: Subtitles will appear on the right side of the player. The active subtitle is highlighted.
 3. **Jump to Subtitles**: Click on any subtitle to jump to its corresponding time in the video.
 4. **Adjust Playback Speed**: Use the slider below the subtitles to change the playback speed.
+5. **Click a keyword**: in the glossary to show or hide its definition.
 
 ## Technologies Used
 
@@ -106,6 +108,9 @@ The subtitles are stored in a JSON file (`subtitles.json`) with the following st
 
 - **Subtitles**: Replace the `subtitles.json` file with your own subtitle data.
 - **Video**: Replace the video file in the `public` folder with your own video.
+- **Glossary terms**:  Modify the `glossary` array in `App.jsx` to add, remove, or change key terms and their definitions.
+
+
 
 ## License
 
