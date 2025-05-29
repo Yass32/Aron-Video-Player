@@ -1,5 +1,6 @@
 // Import necessary things from React
 import React, { useState, useRef, useEffect } from 'react';
+import SpeakWord from './SpeakWord';
 
 // Import CSS and subtitles file
 import './App.css';
@@ -58,12 +59,12 @@ function App() {
         },
         {
             key: "talk",
-            buttonClass: "bg-blue-50 hover:bg-blue-100 text-blue-700",
+            buttonClass: "bg-red-50 hover:bg-red-100 text-red-700",
             title: "Talk",
             definition: "To talk means to use your voice to say words to someone. People talk to share ideas, ask questions, or just have fun with friends.",
             related: "Speak, Chat, Say",
-            colorClass: "bg-blue-50 text-blue-800",
-            relatedClass: "text-blue-600"
+            colorClass: "bg-red-50 text-red-800",
+            relatedClass: "text-red-600"
         },
         {
             key: "paint",
@@ -219,7 +220,11 @@ function App() {
                                         id={`${term.key}-definition`}
                                     >
                                         <div className={`${term.colorClass} p-4 rounded-lg`}>
-                                            <h3 className={`text-lg font-semibold mb-2 ${term.colorClass.split(' ')[1]}`}>{term.title}</h3>
+                                            <div className='flex items-center justify-start mb-2'>
+                                                <h3 className={`text-lg font-semibold ${term.colorClass.split(' ')[1]}`}>{term.title}</h3>
+                                                <SpeakWord word={term.title} color={term.relatedClass}/>
+                                            </div>
+                                            
                                             <p className="text-gray-700">{term.definition}</p>
                                             <div className="mt-3 flex items-center text-sm">
                                                 <span className={`${term.relatedClass} font-medium`}>Related terms:</span>

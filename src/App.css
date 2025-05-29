@@ -24,27 +24,38 @@ main {
 .speed-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #4f46e5;
+  width: 28px;
+  height: 28px;
   cursor: pointer;
   border: none;
+  background: url('/cat.png') no-repeat center center;
+  background-size: contain;
+  margin-top: -12px; /* align thumb vertically */
+  /*border-radius: 50%;
+  background: #4f46e5;*/
+
 }
 
 .speed-slider::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #4f46e5;
+  width: 28px;
+  height: 28px;
   cursor: pointer;
   border: none;
+  background: url('/cat.png') no-repeat center center;
+  background-size: contain;
+  color: #4f46e5;
+  background-color: #e5e7eb;
+
+  /*
+  border-radius: 50%;
+  background: #4f46e5;
+  */
 }
 
 .speed-marker {
   position: absolute;
   transform: translateX(-50%);
-  top: -22px;
+  top: -32px;
   font-size: 13px;
 }
 
