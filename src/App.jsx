@@ -78,6 +78,7 @@ function App() {
     ];
 
     return (
+        // E learning videos component for kids to learn English
         <>
         <main className="p-2 sm:p-4 w-full min-h-screen border border-black bg-gray-50">
             <div className="max-w-7xl mt-8 mx-auto h-full flex flex-col items-center justify-center">
@@ -223,6 +224,26 @@ function App() {
                                             <div className='flex items-center justify-start mb-2'>
                                                 <h3 className={`text-lg font-semibold ${term.colorClass.split(' ')[1]}`}>{term.title}</h3>
                                                 <SpeakWord word={term.title} color={term.relatedClass}/>
+                                                {/* 
+                                                    const SpeakWord = ({ word, color }) => {
+                                                    // Function to speak the word using the Web Speech API
+                                                    const speak = () => {
+                                                    const utterance = new SpeechSynthesisUtterance(word);
+                                                    utterance.lang = 'en-US'; // You can change to 'en-GB', 'fr-FR', etc.
+                                                    speechSynthesis.speak(utterance);
+                                                    };
+
+                                                    return (
+                                                    <button
+                                                            onClick={speak}
+                                                            className={`gap-1 ${color} hover:-translate-y-1 transition duration-300 ease-in-out`}
+                                                            aria-label={`Speak ${word}`}
+                                                    >
+                                                            <Volume2 className="w-5 h-5" />
+                                                    </button>
+                                                    );
+                                                };
+                                                */}
                                             </div>
                                             
                                             <p className="text-gray-700">{term.definition}</p>
